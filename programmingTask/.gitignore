@@ -1,0 +1,12 @@
+# Ignore idea directory
+/.idea/
+
+# Ignore target directory
+*/target/**
+
+# Ignore .iml file extensions
+*.iml
+*.class
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+/target/

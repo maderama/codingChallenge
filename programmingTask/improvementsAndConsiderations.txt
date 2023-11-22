@@ -1,0 +1,11 @@
+//Improvements: have the filename as an argument - just keeping it hardcoded for this implementation.
+    //naming all good?
+    //Single Responsibility Principal violation? Considered pulling out the readFile seperately and returning a BufferReader - then the while loop has to be moved into the main function. I think it's cleaner to do it like this,
+    //but open to suggestions. Pulling it out made testing annoying.
+    //Improvement / Variation: decoupling. Increase in performance time, but then could return the hashmaps individually and avoid having a void method.
+    //Improvements / changes:
+    // 1. Could have this implementation as a priority queue (which I had originally). But this doesn't list the results in decscending order. Which isn't a huge deal, but it's not very intuitive.
+    // Considerations for client:
+    // - I have only returned 3 addresses / ip addresses, regardless of whether there are multiple that are active the same amount.
+    // - How do we want multiple of the same ip addresses / urls returned if there are multiple that are active the same amount? (i.e. alphabetical order / ascending order?)
+        // - do we want all of these returned? I have assumed only 3 required to be returned.

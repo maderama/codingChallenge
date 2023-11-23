@@ -20,6 +20,9 @@
 hs_err_pid*
 replay_pid*
 
+# Ignore target directory
+/target/
+
 # Ignore idea directory
 /.idea/
 

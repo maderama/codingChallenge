@@ -9,6 +9,10 @@ import static java.util.stream.Collectors.toMap;
 
 
 public class ProgrammingTask {
+    /**
+     * Reads file, sorts IP addresses and Urls to print coding task answers
+     * @param args
+     */
     public static void main(String[] args) {
         LinkedHashMap<String, Integer> urls = new LinkedHashMap<>();
         LinkedHashMap<String, Integer> ipAddresses = new LinkedHashMap<>();
@@ -22,6 +26,11 @@ public class ProgrammingTask {
         System.out.println("Top 3 most active URLs = " + getTopNResults(sortedURLsDescending, 3));
     }
 
+    /**
+     * Reads log file and populates linked hash maps with urls and ip addresses found
+     * @param urls
+     * @param ipAddresses
+     */
     public static void readFileAndGetIpAddressesAndUrls(LinkedHashMap<String, Integer> urls, LinkedHashMap<String, Integer> ipAddresses) {
         try {
             InputStream logFileStream = ProgrammingTask.class.getResourceAsStream("/programming-task-example-data.log");
@@ -36,6 +45,12 @@ public class ProgrammingTask {
         }
     }
 
+    /**
+     * Extracts IP addresses based on regex pattern matched and counts how many instances each IP address occurs
+     * @param ipAddresses
+     * @param strLine
+     * @return LinkedHashMap of IpAddresses from log file
+     */
     public static LinkedHashMap<String, Integer> extractIpAddresses(LinkedHashMap<String, Integer> ipAddresses, String strLine) {
         String validIpAddressRegex = "^(([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.){3}([01]?\\d\\d?|2[0-4]\\d|25[0-5])";
         Pattern pattern = Pattern.compile(validIpAddressRegex);
@@ -47,6 +62,12 @@ public class ProgrammingTask {
         return ipAddresses;
     }
 
+    /**
+     * Extracts URLs based on GET index and counts how many instances of each unique URL occurs
+     * @param urls
+     * @param strLine
+     * @return LinkedHashMap of URLs from log file
+     */
     public static LinkedHashMap<String, Integer> extractUrls(LinkedHashMap<String, Integer> urls, String strLine) {
         int indexOfGET = strLine.indexOf("GET");
         int indexOfSpace = strLine.indexOf(" ", indexOfGET + 4);
@@ -57,6 +78,11 @@ public class ProgrammingTask {
         return urls;
     }
 
+    /**
+     * Sorts map by descending order based on value
+     * @param map
+     * @return LinkedHashMap by descending order based on value
+     */
     public static LinkedHashMap<String, Integer> sortMapByValueDescending(Map<String, Integer> map) {
         return map.entrySet().stream()
                 .sorted(reverseOrder(Map.Entry.comparingByValue()))
@@ -64,6 +90,12 @@ public class ProgrammingTask {
                         (e1, e2) -> e1, LinkedHashMap::new));
     }
 
+    /**
+     * Returns x amount of results from a LinkedHashMap where x is the specified number of results to return
+     * @param sortedMapDescending
+     * @param numOfResults
+     * @return List of Strings that pertain to key of the LinkedHashMap passed in
+     */
     public static List<String> getTopNResults(LinkedHashMap<String, Integer> sortedMapDescending, int numOfResults) {
         List<String> keyList = new ArrayList<>();
         for (String key : sortedMapDescending.keySet()) {

@@ -93,7 +93,7 @@ public class ProgrammingTask {
     /**
      * Returns x amount of results from a LinkedHashMap where x is the specified number of results to return
      * @param sortedMapDescending
-     * @param numOfResults
+     * @param numOfResults number of results to return
      * @return List of Strings that pertain to key of the LinkedHashMap passed in
      */
     public static List<String> getTopNResults(LinkedHashMap<String, Integer> sortedMapDescending, int numOfResults) {

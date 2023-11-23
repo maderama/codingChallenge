@@ -26,7 +26,7 @@ public class ProgrammingTask {
         try {
             InputStream logFileStream = ProgrammingTask.class.getResourceAsStream("/programming-task-example-data.log");
             String strLine;
-            BufferedReader reader = new BufferedReader(new InputStreamReader(logFileStream, StandardCharsets.UTF_8));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(logFileStream), StandardCharsets.UTF_8));
             while ((strLine = reader.readLine()) != null) {
                 extractUrls(urls, strLine);
                 extractIpAddresses(ipAddresses, strLine);

@@ -20,14 +20,5 @@
 hs_err_pid*
 replay_pid*
 
-# Ignore idea directory
-/.idea/
-
 # Ignore target directory
 */target/**
-
-# Ignore .iml file extensions
-*.iml
-**/.idea/workspace.xml
-**/.idea/tasks.xml
-/target/

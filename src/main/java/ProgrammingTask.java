@@ -33,9 +33,10 @@ public class ProgrammingTask {
      */
     public static void readFileAndGetIpAddressesAndUrls(LinkedHashMap<String, Integer> urls, LinkedHashMap<String, Integer> ipAddresses) {
         try {
-            InputStream logFileStream = ProgrammingTask.class.getResourceAsStream("/programming-task-example-data.log");
+            String fileName = "programming-task-example-data.log";
+            InputStream inputStream = getFileFromResourcesAsStream(fileName);
             String strLine;
-            BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(logFileStream), StandardCharsets.UTF_8));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(inputStream), StandardCharsets.UTF_8));
             while ((strLine = reader.readLine()) != null) {
                 extractUrls(urls, strLine);
                 extractIpAddresses(ipAddresses, strLine);
@@ -43,6 +44,19 @@ public class ProgrammingTask {
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
         }
+    }
+
+    /**
+     * Gets file from resource folder as input stream
+     * @return InputStream
+     * @param fileName
+     */
+    private static InputStream getFileFromResourcesAsStream(String fileName) {
+        InputStream inputStream = ProgrammingTask.class.getClassLoader().getResourceAsStream(fileName);
+        if (inputStream == null) {
+            throw new IllegalArgumentException("file not found! " + fileName);
+        }
+        return inputStream;
     }
 
     /**

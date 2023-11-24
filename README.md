@@ -2,19 +2,19 @@
 
 ### TO RUN:
 1. Extract the project to the local environment
-2. Navigate the folder filepath in the terminal: ```/programmingTask/src/main/java```
 
 **Option #1 (Run in IDE):**
 
+   2. Navigate the folder filepath in the terminal: ```/programmingTask/src/main/java```
    3. Open the project within the IDE
    4. Run ```ProgrammingTask.main()```
    5. The output for the task will be provided
    
 **Option #1 (Run from command line):**
 
-  3. Execute the command: ```javac ProgrammingTask.java```
-  4. Execute the command: ```java ProgrammingTask```
-  5. The output for the task will be provided
+  2. Execute the command: ```javac ProgrammingTask.java```
+  3. Execute the command: ```java ProgrammingTask```
+  4. The output for the task will be provided
 
 ### ASSUMPTIONS MADE:
 Assumptions made when completing this task are as follows:
